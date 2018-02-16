@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_PSCR, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
        KC_SLCK, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_COMM,
        KC_TRNS, KC_6   , KC_7   , KC_8   , KC_9   , KC_0,
-       KC_TRNS, KC_PSLS, KC_PAST, KC_PMNS, KC_PPLS, KC_EQL , KC_DOT,
+       KC_TRNS, LGUI_T(KC_PSLS), LALT_T(KC_PAST), LSFT_T(KC_PMNS), LCTL_T(KC_PPLS), KC_EQL , KC_DOT,
        KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
                                            KC_TRNS, KC_TRNS,
                                                     KC_TRNS,
