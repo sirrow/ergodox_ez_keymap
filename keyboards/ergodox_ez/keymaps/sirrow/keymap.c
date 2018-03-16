@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         // right hand
 	     KC_NO   ,    KC_6,   KC_7,  KC_8,   KC_9,   KC_0,             KC_BSLS,
              KC_NO   ,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_EQL,
-                          KC_H,   KC_J,  KC_K,   KC_L,   KC_SCLN,          KC_QUOT,
+	     KC_H,   KC_J,  KC_K,   KC_L,   LSFT_T(KC_SCLN),          KC_QUOT,
 	LSFT(LCTL(KC_F3))   ,    KC_N,   LCTL_T(KC_M),  LSFT_T(KC_COMM),LALT_T(KC_DOT), LGUI_T(KC_SLSH),          KC_MINS,
                                   MO(ARRW),KC_NO,KC_LBRC,KC_RBRC,          MO(SYMB),
              KC_NO,        KC_NO,
