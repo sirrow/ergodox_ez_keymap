@@ -4,9 +4,10 @@
 #include "version.h"
 
 #define BASE 0 // default layer
-#define SYMB 1 // symbols
+#define FNCT 1 // symbols
 #define ARRW 2 // arrow keys
 #define BRCT 3 // brackets keys
+#define SYMB 4 // brackets keys
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -27,7 +28,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * | LShift |   Z  |   X  |   C  |   V  |   B  |IMEOFF|           |IMEON |   N  |   M  |   ,  |   .  |   /  |   -    |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |  L1  |      | LGui | Alt  |  L3  |                                       |  L2  |      |   [  |   ]  |  L1  |
+ *   |  L1  |      | LGui | Alt  |  L3  |                                       |  L4  |      |   [  |   ]  |  L1  |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
  *                                        | LGui | App  |       |      |        |
@@ -45,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB ,        KC_Q,         KC_W,   KC_E,   KC_R,   KC_T,   KC_NO,
         KC_LCTL,        KC_A,         KC_S,   KC_D,   KC_F,   KC_G,
         KC_LSFT,        LGUI_T(KC_Z),         LALT_T(KC_X),   LSFT_T(KC_C),   LCTL_T(KC_V),   KC_B,   LSFT(LCTL(KC_F2)),
-        MO(SYMB),KC_NO,      KC_LGUI,  KC_LALT,MO(BRCT),
+        MO(FNCT),KC_NO,      KC_LGUI,  KC_LALT,MO(BRCT),
                                               KC_LGUI, KC_APP,
                                                               KC_NO,
 	                                      LCTL_T(KC_SPC),KC_TAB,KC_ESC,
@@ -54,12 +55,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_NO   ,    KC_Y,   KC_U,  KC_I,   KC_O,   KC_P,             KC_EQL,
 	     KC_H,   KC_J,  KC_K,   KC_L,   LSFT_T(KC_SCLN),          KC_QUOT,
 	LSFT(LCTL(KC_F3))   ,    KC_N,   LCTL_T(KC_M),  LSFT_T(KC_COMM),LALT_T(KC_DOT), LGUI_T(KC_SLSH),          KC_MINS,
-                                  MO(ARRW),KC_NO,KC_LBRC,KC_RBRC,          MO(SYMB),
+                                  MO(SYMB),KC_NO,KC_LBRC,KC_RBRC,          MO(FNCT),
              KC_NO,        KC_NO,
              KC_NO,
              KC_DEL, KC_BSPC, LT(ARRW, KC_ENT)
     ),
-/* Keymap 1: Symbol Layer
+/* Keymap 1: Function Layer
  *
  * ,---------------------------------------------------.           ,--------------------------------------------------.
  * |Version  |  F1  |  F2  |  F3  |  F4  |  F5  |      |           |      |  F6  |  F7  |  F8  |  F9  |  F10 |   F11  |
@@ -81,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 `--------------------'       `--------------------'
  */
 // SYMBOLS
-[SYMB] = LAYOUT_ergodox(
+[FNCT] = LAYOUT_ergodox(
        // left hand
        VRSN,   KC_F1,  KC_F2,  KC_F3,  KC_F4,  KC_F5,  KC_TRNS,
        KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,KC_TRNS,
@@ -185,7 +186,52 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,
        KC_TRNS, KC_TRNS, KC_TRNS
 ),
+
+
+/* Keymap 4: Symbols
+ *
+ * ,--------------------------------------------------.           ,--------------------------------------------------.
+ * |        |      |      |      |      |      |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
+ * |        |  !   |  @   |  #   |  $   |  %   |      |           |      |      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |  ^   |  &   |  *   |  \   |  |   |------|           |------|      |      |      |      |      |        |
+ * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
+ * |        |      |      |  ~   |  `   |      |      |           |      |      |      |      |      |      |        |
+ * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
+ *   |      |      |      |      |      |                                       |      |      |      |      |      |
+ *   `----------------------------------'                                       `----------------------------------'
+ *                                        ,-------------.       ,-------------.
+ *                                        |      |      |       |      |      |
+ *                                 ,------|------|------|       |------+------+------.
+ *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 |      |      |      |       |      |      |      |
+ *                                 `--------------------'       `--------------------'
+ */
+
+// left hand
+[SYMB] = LAYOUT_ergodox(
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_EXLM, KC_AT  , KC_HASH, KC_DLR , KC_PERC, KC_TRNS,
+       KC_TRNS, KC_CIRC, KC_AMPR, KC_ASTR, KC_BSLS, KC_PIPE,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TILD, KC_GRV , KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                                           KC_TRNS, KC_TRNS,
+                                                    KC_TRNS,
+                                  KC_TRNS, KC_TRNS, KC_TRNS,
+    // right hand
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                 KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+                          KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
+       KC_TRNS, KC_TRNS,
+       KC_TRNS,
+       KC_TRNS, KC_TRNS, KC_TRNS
+),
 };
+
 
 
 /* Keymap x: all trans template
