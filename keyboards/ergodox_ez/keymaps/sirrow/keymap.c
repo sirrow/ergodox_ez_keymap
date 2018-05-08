@@ -7,7 +7,7 @@
 #define FNCT 1 // symbols
 #define ARRW 2 // arrow keys
 #define BRCT 3 // brackets keys
-#define SYMB 4 // brackets keys
+#define SYMB 4 // symbol keys
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
